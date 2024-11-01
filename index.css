@@ -13,8 +13,13 @@ body {
   transition: background-color 0.1s ease, color 0.1s ease;
   /* تم تقليل مدة الانتقال */
   text-align: center;
-}
 
+}
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;flex-direction: column;
+}
 
 /* تنسيق العنوان */
 h2 {
@@ -33,8 +38,7 @@ p {
 
 /* شريط علوي يحتوي على الشعار واسم الشركة وزر الوضع */
 .top-bar {
-  position: flex;
-  top: 10px;
+
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -137,19 +141,11 @@ button {
   width: 100%;
   text-align: center;
   padding: 10px;
-  position: fixed;
-  bottom: 0;
   background-color: #f5f7fa;
-  /* خلفية فاتحة للوضع الفاتح */
-  color: #333;
-  font-size: 14px;
+
 }
 
-body.dark-mode .footer {
-  background-color: #121212;
-  /* خلفية داكنة للوضع الداكن */
-  color: #ffffff;
-}
+
 
 /* تنسيق أيقونات التواصل الاجتماعي */
 .social-icons {
@@ -170,26 +166,18 @@ body.dark-mode .footer {
 }
 
 
-.footer p {
-  margin-bottom: 0;
-}
-
 
 
 /* أيقونة واتساب */
 .whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+position: fixed;
+right: 0;
+bottom: 0;
 }
-
 .whatsapp i {
   font-size: 66px;
   color: #25d366;
 }
-
-
-
 /* تنسيق التنبيه */
 .alert {
   padding: 15px;
@@ -259,82 +247,53 @@ body.dark-mode .footer {
   }
 }
 
-/* تصميم للجوالات */
-@media (max-width: 480px) {
+
+@media (max-width: 500px) {
+  main{
+    padding: 10px ;
+  }
   .top-bar {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
     width: 100%;
+    justify-content: space-around;
+  
   }
 
   .logo {
-    width: 220px;
+    width: 350px;
   }
 
   .company-name {
-    font-size: 14px;
-  }
-
-  .card {
-    margin-top: -12px;
-    display: flex;
-    flex-direction: column;
+    font-size: 16px;
   }
 
   h2 {
-    font-size: 20px;
-    margin-top: 80px;
+    font-size: 22px;
+    margin-top: 100px;
   }
+.card{
+  width: 90%;
+  margin: 10px auto;
+  padding: 0 1px;
+}
 
-  p {
-    font-size: 12px;
-    margin-bottom: 30px;
-  }
-
-
-
-
-  .input-group input,
-  .input-group select {
-    padding: 16px 60px 16px 10px;
-    /* تحريك الحقل ليكون بعيدًا عن الأيقونة */
-  }
-
-  .input-group,
-  .flex-row {
-    flex-direction: column;
-
-  }
-
-  /* تعديل الأيقونات والحقول */
-  input[type="text"],
-  input[type="number"],
-  input[type="tel"],
-  select {
-    width: 375px;
-    font-size: 14px;
-    padding: 14px 10px;
-  }
 
   button {
     width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 20px;
+    padding: 12px;
+    font-size: 16px;
   }
 
   .social-icons a {
-    font-size: 16px;
-    margin: 0 5px;
-  }
-
-  .footer {
-    padding: 5px;
-    margin-bottom: 20px;
+    font-size: 18px;
   }
 
   .footer p {
     font-size: 12px;
   }
+  .whatsapp i {
+    margin: 20px 20px;
+    font-size: 44px;
+    color: #25d366;
+  }
 }
+
