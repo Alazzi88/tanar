@@ -1,0 +1,340 @@
+/* تطبيق خط المراعي على الصفحة */
+body {
+  font-family: 'Almarai', sans-serif;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  color: #333;
+  transition: background-color 0.1s ease, color 0.1s ease;
+  /* تم تقليل مدة الانتقال */
+  text-align: center;
+}
+
+
+/* تنسيق العنوان */
+h2 {
+  font-size: 24px;
+  color: inherit;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+/* تنسيق النص التوضيحي */
+p {
+  font-size: 14px;
+  color: inherit;
+  margin-bottom: 50px;
+}
+
+/* شريط علوي يحتوي على الشعار واسم الشركة وزر الوضع */
+.top-bar {
+  position: flex;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 600px;
+}
+
+.logo {
+  width: 300px;
+  padding: 0;
+  margin-right: 0px;
+
+}
+
+.company-name {
+  margin-left: 50px;
+  margin-top: 34px;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+
+/* تنسيق الحقول مع الأيقونات */
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+  /* زيادة التباعد بين الحقول */
+  text-align: right;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #5bc0de;
+  /* لون أزرق فاتح للأيقونات */
+}
+
+/* حاوية خاصة لجعل الاسم والراتب بجانب بعض */
+.flex-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ضبط الحقول */
+.flex-row .input-group {
+  flex: 1;
+  /* تساوي عرض الحقول */
+}
+
+/* الحقول */
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 16px 15px 16px 40px;
+  border: none;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: rgba(91, 192, 222, 0.1);
+  /* خلفية زرقاء فاتحة شفافة */
+  color: #333;
+  direction: rtl;
+  appearance: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  font-family: 'Almarai', sans-serif;
+}
+
+
+/* زر الإرسال */
+button {
+  width: 200px;
+  /* العرض المحدد */
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  /* جعل الزر دائري */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: 'Almarai', sans-serif;
+  margin-top: 20px;
+}
+
+
+
+/* تنسيق الفوتر */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  background-color: #f5f7fa;
+  /* خلفية فاتحة للوضع الفاتح */
+  color: #333;
+  font-size: 14px;
+}
+
+body.dark-mode .footer {
+  background-color: #121212;
+  /* خلفية داكنة للوضع الداكن */
+  color: #ffffff;
+}
+
+/* تنسيق أيقونات التواصل الاجتماعي */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #5bc0de;
+  /* لون الأيقونات */
+  font-size: 20px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  /* تغيير لون الأيقونة عند التمرير */
+}
+
+
+.footer p {
+  margin-bottom: 0;
+}
+
+
+
+/* أيقونة واتساب */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.whatsapp i {
+  font-size: 66px;
+  color: #25d366;
+}
+
+
+
+/* تنسيق التنبيه */
+.alert {
+  padding: 15px;
+  background-color: #4CAF50;
+  /* لون التنبيه */
+  color: white;
+  border-radius: 0 0 8px 8px;
+  /* حواف دائرية من الأسفل */
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 9999;
+}
+
+.alert.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert.hidden {
+  display: none;
+}
+
+
+/* تصميم للأجهزة اللوحية (iPad) والشاشات الكبيرة */
+@media (max-width: 768px) {
+  .top-bar {
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px;
+  }
+
+  .logo {
+    width: 350px;
+  }
+
+  .company-name {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin-top: 100px;
+  }
+
+
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .social-icons a {
+    font-size: 18px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}
+
+/* تصميم للجوالات */
+@media (max-width: 480px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .logo {
+    width: 220px;
+  }
+
+  .company-name {
+    font-size: 14px;
+  }
+
+  .card {
+    margin-top: -12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 80px;
+  }
+
+  p {
+    font-size: 12px;
+    margin-bottom: 30px;
+  }
+
+
+
+
+  .input-group input,
+  .input-group select {
+    padding: 16px 60px 16px 10px;
+    /* تحريك الحقل ليكون بعيدًا عن الأيقونة */
+  }
+
+  .input-group,
+  .flex-row {
+    flex-direction: column;
+
+  }
+
+  /* تعديل الأيقونات والحقول */
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  select {
+    width: 375px;
+    font-size: 14px;
+    padding: 14px 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  .social-icons a {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+
+  .footer {
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}
